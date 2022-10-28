@@ -79,7 +79,7 @@ fi
 
 # removes all snap and snap packages 
 snap remove firefox 
-echo "Sap package removed"
+echo "Snap package removed"
 sleep 5s
 snap remove snap-store 
 echo "Snap package removed"
@@ -97,6 +97,9 @@ echo "y, Yes"
 echo "n, No"
 echo "k, keep both"
 
+
+read -rp "= " CHOICE 
+
 if [ "$CHOICE" = y ]; then
 	cat pkg.txt | xargs apt install -y
 	exit 
@@ -109,7 +112,7 @@ elif [ "$CHOICE" = k ]; then
 	eval "$skip_str"
 
 else
-	eval "$skip_str"
+	exit 
 
 
 fi 
@@ -151,7 +154,7 @@ read -rp "= " CHOICE
 if [ "$CHOICE" = 1 ]; then 
 	echo "installing flatpak"
 	eval "$skip_str"
-
+0
 elif [ "$CHOICE" = 2 ]; then
 	exit 
 

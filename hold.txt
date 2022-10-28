@@ -1,4 +1,1 @@
 snapd 
-snap-store 
-
-
