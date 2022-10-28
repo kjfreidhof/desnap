@@ -1,12 +1,10 @@
-# The Script 
+# desnap
 
 #!/bin/bash
 
 # AUTHOR = Kyle Freidhof 
 
 # Date created = /10/27/22
-
-# Name of script = replace.sh
 
 # License = GPL3
 
@@ -51,7 +49,7 @@ echo "will remove snap and replace it with flatpak in ubuntu"
 sleep 5s 
 echo "Warning i am not responsible for any damages to your system when you run this script"
 sleep 5s 
-echo "At your own risk"
+echo "run this at your own risk"
 sleep 5s 
 
 
