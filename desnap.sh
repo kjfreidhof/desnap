@@ -172,6 +172,55 @@ cat flatpak.txt | xargs apt install -y
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 
+# asks user if they want to install firefox .deb version 
+echo "Do you want to install the .deb version of firefox in ubuntu [1|2|3|]"
+echo "1, Install"
+echo "2, exit"
+echo "3 Reboot"
+
+read -rp "= " CHOICE
+
+if [ "$CHOICE" = 1 ]; then
+        $skip_str
+
+elif [ "$CHOICE" = 2 ]; then
+        echo "exiting...."
+        sleep 3
+        exit
+
+elif [ "$CHOICE" = 3 ]; then
+        echo "rebooting"
+        sleep 5
+        reboot
+
+else
+        exit
+
+
+
+
+fi
+
+# installs firefox the .deb version
+add-apt-repository ppa:mozillateam/ppa
+
+sleep 3
+
+apt update 
+
+sleep 3
+
+echo '
+Package: *
+Pin: release o=LP-PPA-mozillateam
+Pin-Priority: 1001
+' | tee /etc/apt/preferences.d/mozilla-firefox
+
+cat firefox.txt | xargs apt install
+
+
+
+# asks user if they want to Reboot or do it manually
 echo "Do you want to Reboot now or do it manually for flatpak to take affect? [1|2|]"
 echo "1, Reboot"
 echo "2, Manually"
